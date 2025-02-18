@@ -20,7 +20,7 @@ O GeoVisualizerWeb é uma plataforma web interativa para visualização e análi
 
 ## Instalação
 
-1. Clone o repositório: `git clone https://[endereço do repositório]`
+1. Clone o repositório: `git clone https://github.com/CEIA-Prefeitura/geo-visualizer-web.git`
 2. Instale as dependências: `npm install`
 3. Execute o projeto: `ng serve`
 
