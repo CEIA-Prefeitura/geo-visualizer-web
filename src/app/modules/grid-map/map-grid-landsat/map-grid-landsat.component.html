@@ -1,0 +1,69 @@
+<h5 *ngIf="lat && lon" class="text-center m-5">Latitude: {{ lat | number }}, Longitude: {{ lon | number }}</h5>
+<ng-container class="w-5" *ngIf="pointInfo$ | async as pointInfo">
+    <p-panel header="Informação do Ponto" [toggleable]="true" [collapsed]="true">
+        <div class="card ">
+            <p-table [value]="getObjectKeys(pointInfo)">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Key</th>
+                        <th>Value</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-key>
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ pointInfo[key] }}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </p-panel>
+</ng-container>
+<div class="flex justify-content-evenly">
+    <span class="flex flex-column align-items-center">
+        <label for="period-type-land">Tipo do Período</label>
+        <p-selectButton
+            id="period-type-land"
+            [options]="landsatPeriods"
+            [(ngModel)]="selectedLandsatPeriod"
+            class="w-full"
+            (onChange)="updateLandsatMaps()"
+        ></p-selectButton>
+    </span>
+    <span class="flex flex-column align-items-center">
+        <label for="year-type">Year Type</label>
+        <p-selectButton
+            id="year-type"
+            [options]="yearTypes"
+            [(ngModel)]="selectedYearType"
+            class="w-full"
+            (onChange)="updateLandsatMaps()"
+        ></p-selectButton>
+    </span>
+    <span class="flex flex-column align-items-center">
+        <label for="year-select-sant">Ano</label>
+        <p-dropdown
+            class="w-full"
+            id="year-select-sant"
+            [options]="landsatYears"
+            [(ngModel)]="selectedLandsatYear"
+            (onChange)="updateLandsatMaps()"
+        ></p-dropdown>
+    </span>
+    <span class="flex flex-column align-items-center">
+        <label for="vis-params-land">Parâmetros de Visualização</label>
+        <p-selectButton
+            id="vis-params-land"
+            [options]="landsatVisParams"
+            [(ngModel)]="selectedLandsatVisParam"
+            class="w-full"
+            (onChange)="updateLandsatMaps()"
+        ></p-selectButton>
+    </span>
+</div>
+<div class="map-grid mt-3">
+    <div *ngFor="let map of landsatMaps" class="map-item">
+        <div [id]="map.id" class="map-container"></div>
+    </div>
+</div>
+<app-landsat-timeseries *ngIf="lat && lon" [lat]="lat" [lon]="lon"></app-landsat-timeseries>

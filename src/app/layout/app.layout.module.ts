@@ -12,15 +12,16 @@ import { TooltipModule } from 'primeng/tooltip';
 import { RippleModule } from 'primeng/ripple';
 import { AppConfigModule } from './config/app.config.module';
 import { AppLayoutComponent } from './app.layout.component';
-import { AppBreadcrumbComponent } from './app.breadcrumb.component';
-import { AppSidebarComponent } from './app.sidebar.component';
-import { AppTopbarComponent } from './app.topbar.component';
-import { AppProfileSidebarComponent } from './app.profilesidebar.component';
-import { AppMenuComponent } from './app.menu.component';
-import { AppMenuitemComponent } from './app.menuitem.component';
+import { AppBreadcrumbComponent } from './breadcrumb/app.breadcrumb.component';
+import { AppSidebarComponent } from './sidebar/app.sidebar.component';
+import { AppTopbarComponent } from './topbar/app.topbar.component';
+import { AppProfileSidebarComponent } from './profile-sidebar/app.profilesidebar.component';
+import { AppMenuComponent } from './menu/app.menu.component';
+import { AppMenuitemComponent } from './menu/app.menuitem.component';
 import { RouterModule } from '@angular/router';
 import { ButtonModule } from 'primeng/button';
 import { StyleClassModule } from 'primeng/styleclass';
+import {GeojsonUploadModule} from "../modules/geojson-upload/geojson-upload.module";
 
 @NgModule({
     declarations: [AppLayoutComponent, AppBreadcrumbComponent, AppSidebarComponent, AppTopbarComponent, AppProfileSidebarComponent, AppMenuComponent, AppMenuitemComponent],
@@ -39,7 +40,8 @@ import { StyleClassModule } from 'primeng/styleclass';
         RippleModule,
         RouterModule,
         AppConfigModule,
-        ButtonModule
+        ButtonModule,
+        GeojsonUploadModule
     ]
 })
 export class AppLayoutModule {}

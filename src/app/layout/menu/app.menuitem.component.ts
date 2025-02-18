@@ -4,8 +4,8 @@ import { animate,AnimationEvent, state, style, transition, trigger } from '@angu
 import { Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { MenuService } from './app.menu.service';
-import { LayoutService } from './service/app.layout.service';
-import { AppSidebarComponent } from './app.sidebar.component';
+import { LayoutService } from '../service/app.layout.service';
+import { AppSidebarComponent } from '../sidebar/app.sidebar.component';
 import {DomHandler} from 'primeng/dom';
 
 @Component({
@@ -178,7 +178,7 @@ export class AppMenuitemComponent implements OnInit, OnDestroy {
             // reset
             overlay.style.top = '';
             overlay.style.left = '';
-      
+
             if (this.layoutService.isHorizontal()) {
                 const width = left + oWidth + scrollbarWidth;
                 overlay.style.left = vWidth < width ? `${left - (width - vWidth)}px` : `${left}px`;

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MenuService } from '../app.menu.service';
+import { MenuService } from '../menu/app.menu.service';
 import {
     LayoutService,
     MenuMode,

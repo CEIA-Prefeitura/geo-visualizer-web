@@ -1,6 +1,8 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { LayoutService } from 'src/app/layout/service/app.layout.service';
-import { AppSidebarComponent } from './app.sidebar.component';
+import { AppSidebarComponent } from '../sidebar/app.sidebar.component';
+import {Observable} from "rxjs";
+import {PointService} from "../../modules/grid-map/services/point.service";
 
 @Component({
     selector: 'app-topbar',
@@ -10,7 +12,10 @@ export class AppTopbarComponent {
     @ViewChild('menubutton') menuButton!: ElementRef;
     @ViewChild(AppSidebarComponent) appSidebar!: AppSidebarComponent;
     activeItem!: number;
-    constructor(public layoutService: LayoutService, public el: ElementRef) {}
+    latitude!:number;
+    longitude!:number;
+    public pointInfo$: Observable<any> = this.pointService.pointInfo$;
+    constructor(public layoutService: LayoutService, public el: ElementRef, public pointService: PointService) {}
 
     onMenuButtonClick() {
         this.layoutService.onMenuToggle();
@@ -23,4 +28,8 @@ export class AppTopbarComponent {
     onConfigButtonClick() {
         this.layoutService.showConfigSidebar();
     }
-}
+    onSearchPoint(){
+        this.pointService.setPoint({lat: this.latitude, lon: this.longitude})
+    }
+
+    }

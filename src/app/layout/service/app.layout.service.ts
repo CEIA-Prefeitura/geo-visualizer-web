@@ -44,11 +44,11 @@ export class LayoutService {
     _config: AppConfig = {
         ripple: false,
         inputStyle: 'outlined',
-        menuMode: 'drawer',
-        colorScheme: 'light',
-        theme: 'teal',
+        menuMode: 'static',
+        colorScheme: 'dark',
+        theme: 'purple',
         scale: 14,
-        menuTheme: 'light',
+        menuTheme: 'dark',
         topbarTheme: 'transparent',
     };
 
