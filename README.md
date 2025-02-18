@@ -4,6 +4,8 @@
 
 O GeoVisualizerWeb é uma plataforma web interativa para visualização e análise de dados de satélite, com foco em imagens Sentinel e Landsat. Permite explorar mapas, ajustar parâmetros de visualização e obter insights valiosos sobre a superfície terrestre.
 
+![tela-inicial.png](src/assets/layout/images/tela-inicial.png)
+
 ## Funcionalidades
 
 * Visualização de mapas Sentinel e Landsat
